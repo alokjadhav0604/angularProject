@@ -1,0 +1,11 @@
+<div style="width: 500px;">
+    <h2 mat-dialog-title>Delete</h2>
+    <mat-dialog-content class="mat-typography">
+      <h3>Are you sure want to delete ?</h3>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" style="padding: 10px;">
+      <button mat-stroked-button color="primary" style="width: 100px;" mat-dialog-close>Cancel</button>
+      <button mat-stroked-button color="primary" [mat-dialog-close]="true" cdkFocusInitial style="width: 100px;margin-right: 20px;">Delete</button>
+    </mat-dialog-actions>
+</div>

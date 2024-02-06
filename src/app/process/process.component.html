@@ -1,0 +1,33 @@
+<div style="display: block;width: 100%;">
+    <div style="background: #435d7d;
+        color: #fff;
+        padding: 16px 30px;
+        min-width: 96%;
+        border-radius: 3px 3px 0 0;">
+        <h2 style="width: 90%;display: inline-block;margin-bottom: 0px !important;">Student information Plan</h2>
+        <span>
+            <mat-icon (click)="AddDialog()"> add_circle_outline</mat-icon>
+        </span>
+    </div>
+
+    <div class="flex-container" style="border-bottom: 1px solid #ccc;">
+        <div>SR No</div>
+        <div>Name</div>
+        <div>Email</div>  
+        <div>Contact No</div>
+        <div>Product information</div>  
+        <!-- edit and delete -->
+        <div style="min-width: 420px !important;">Action</div>
+    </div>
+
+    <div class="flex-container demo" *ngFor="let list of studentInformation">
+        <div style=" font-size: 15px !important;">{{list.id}}</div>
+        <div style=" font-size: 15px !important;">{{list.name}}</div>
+        <div style=" font-size: 15px !important;">{{list.email}}</div>  
+        <div style=" font-size: 15px !important;">{{list.contactNumber}}</div>
+        <div style=" font-size: 15px !important;">{{list.productInformation}}</div>  
+        <!-- edit and delete -->
+        <div style="min-width: 420px !important;"><mat-icon style="margin-right: 10px;" (click)="editDialog(list)">edit</mat-icon> 
+            <mat-icon (click)="DeleteDialog(list.id)">delete</mat-icon></div>
+    </div>
+</div>

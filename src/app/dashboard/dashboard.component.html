@@ -1,0 +1,70 @@
+<p>dashboard works!</p>
+<div class="mainSection">
+    <div style="border: 1px solid gray;justify-content: space-between;width:30%; height:auto;"> 
+        <div style="text-align: center;height: 40px;border-bottom: 1px solid gray;">
+            <span style="text-align: center;">Add user information</span>
+        </div>
+        <div style="margin:20px;">
+            <label>Name : </label>
+            <input [(ngModel)]="name" type="text">
+        </div>
+
+        <div style="margin:20px;">
+            <label>Age : </label>
+            <select [(ngModel)]="age" name="carlist" style="width:100px;">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+            </select>
+        </div>
+
+        <div style="margin:20px;">
+            <label>Gender : </label>
+            <input type="radio" id="gender" name="gender" [(ngModel)]="gender" value="male"/> Male
+            <input type="radio" id="gender" name="gender" [(ngModel)]="gender" value="female"/> Female
+        </div>
+
+        <div style="margin:20px;">
+            <div>hobbies : </div>
+            <input style="margin-bottom:10px" type="text" [(ngModel)]="hobbies1"> +
+            <input type="text" [(ngModel)]="hobbies2"> -
+        </div>
+
+        <div style="margin:20px;">
+            <input type="checkbox" [(ngModel)]="allinfo"> All the information are Verified
+        </div>
+
+        <div style="margin:20px;">
+            
+            <button style="margin-bottom:10px; margin-right: 10px;" type="button" name="add" (click)="addRecord()">Add</button>
+            <button type="button" name="clear"> Reset </button> 
+        </div>
+
+    </div>
+    <div style="border: 1px solid gray;width:70%; height:auto;">
+        <div style="text-align: center;height: 40px;border-bottom: 1px solid gray;">
+            <span style="text-align: center;">User List</span>
+        </div>
+        <div style="margin:20px;display: flex;flex-direction: row-reverse;">
+            <input type="text" [(ngModel)]="searchtext" (ngModelChange)="searchData(searchtext)">
+        </div>
+
+        <table style="border: 1px solid gray;">
+            <tr style="background-color: gray; border: 1px solid gray;">
+                <td style="width: 100px;border: 1px solid gray; ">name</td>
+                <td style="width: 100px; border: 1px solid gray;">age</td>
+                <td style="width: 100px; border: 1px solid gray;">gender</td>
+                <td style="width: 100px; border: 1px solid gray;">hobbies</td>
+                <td style="width: 100px; border: 1px solid gray;">action</td>
+            </tr>
+            <tr *ngFor="let list of listOfRecord" style="border: 1px solid gray;">
+                <td *ngIf="list.show" style="width: 100px;">{{list.name}}</td>
+                <td *ngIf="list.show" style="width: 100px;">{{list.age}}</td>
+                <td *ngIf="list.show" style="width: 100px;">{{list.gender}}</td>
+                <td *ngIf="list.show" style="width: 100px;">{{list.hobbies1}},{{list.hobbies2}}</td>
+                <td *ngIf="list.show" style="width: 100px;"><button type="button" (click)="remove(list)">Delete</button></td>
+            </tr>    
+        </table>
+    </div>
+</div>
